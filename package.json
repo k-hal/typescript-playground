@@ -1,0 +1,63 @@
+{
+  "name": "typescript-playground",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/lib/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
+  "scripts": {
+    "prebuild": "npx rimraf dist",
+    "build": "npx run-p build:*",
+    "build:common": "npx tsc",
+    "build:esm": "npx tsc -p tsconfig.esm.json",
+    "fix": "npx run-p fix:*",
+    "fix:eslint": "npm run lint:eslint -- --fix",
+    "fix:prettier": "npm run lint:prettier -- --write",
+    "lint": "npx run-p lint:*",
+    "lint:eslint": "npx eslint --ext js,ts .",
+    "lint:prettier": "npx prettier -l \"**/*.{json,md,yml}\"",
+    "lint:type": "npx tsc --noEmit",
+    "test": "npx run-s lint test:*",
+    "test:unit": "npx jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/k-hal/typescript-playground.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/k-hal/typescript-playground/issues"
+  },
+  "homepage": "https://github.com/k-hal/typescript-playground#readme",
+  "devDependencies": {
+    "@types/jest": "^25.1.0",
+    "@typescript-eslint/eslint-plugin": "2.18.0",
+    "@typescript-eslint/parser": "2.18.0",
+    "eslint": "6.8.0",
+    "eslint-config-prettier": "6.10.0",
+    "eslint-plugin-import": "2.20.0",
+    "eslint-plugin-prettier": "3.1.2",
+    "eslint-plugin-simple-import-sort": "5.0.1",
+    "husky": "^4.2.1",
+    "jest": "^25.1.0",
+    "lint-staged": "^10.0.3",
+    "npm-run-all": "4.1.5",
+    "prettier": "1.19.1",
+    "rimraf": "^3.0.1",
+    "ts-jest": "^25.0.0",
+    "typescript": "^3.7.5"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "bin": {
+    "typescript-npm-starter": "dist/bin/index.js"
+  },
+  "engines": {
+    "node": ">= 12",
+    "npm": ">= 6.12"
+  }
+}
